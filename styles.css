@@ -9,8 +9,19 @@
   }
   
   /* Clear floats after the columns */
-  .row:after {
+.row:after {
     content: "";
     display: table;
     clear: both;
+  }
+.settings-icon {
+    position: absolute;      /* Position icon in top-left corner */
+    top: 10px;               /* Distance from top */
+    left: 10px;              /* Distance from left */
+  }
+  
+.settings-icon img {
+    width: 30px;             /* Adjust the size of the icon */
+    height: 30px;            /* Keep the icon square */
+    cursor: pointer;         /* Change cursor to pointer on hover */
   }
