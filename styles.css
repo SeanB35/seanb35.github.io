@@ -1,38 +1,44 @@
 /* Global Styles */
 * {
-  font-family: "Courier", sans-serif;
-  background-color: gray;
+  font-family: "Inter", sans-serif; /* Modern and clean font */
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
+  background-color: #121212; /* Dark background */
+  color: #e0e0e0; /* Soft off-white for text */
   text-align: center;
-  padding-top: 50px;
+  padding-top: 20px;
+}
+.ptype {
+  color: #f39c12; /* Desired color */
+  font-size: 2rem; /* Adjust font size */
+  text-align: center; /* Center align text */
+  margin: 20px 0; /* Add some spacing */
 }
 
+/* Banner Styling */
 .banner {
-  background: blue;
-  color: white;
-  padding: 10px; /* Adjust padding for desired spacing */
-  display: flex; /* Enable flexbox for alignment */
-  align-items: center; /* Vertically center items */
-  justify-content: space-between; /* Push items to the edges */
+  background: #1f1f1f; /* Dark but not black */
+  color: #e0e0e0; /* Soft white text */
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #333; /* Subtle line for separation */
 }
 
-.ptype-logo {
+.banner a {
   text-decoration: none;
-  color: inherit;
+  color: #e0e0e0;
+  font-size: 1.25rem;
 }
 
-.ptype-logo:hover {
-  text-decoration: none;
-  color: inherit;
-}
-
-.header {
-  margin: 0; /* Reset margin */
-  position: relative; /* Use relative positioning */
+.banner a:hover {
+  color: #f39c12; /* Accent color on hover */
+  transition: color 0.3s ease-in-out;
 }
 
 .header img {
@@ -41,69 +47,63 @@ body {
   cursor: pointer;
 }
 
-/* Typing Game Section */
-.typing-game {
+/* Sub-Banner Section */
+.sub-banner {
+  margin: 30px auto;
+  max-width: 80%;
+  padding: 15px 20px;
+  background-color: #1e1e1e;
+  border-radius: 8px; /* Rounded edges for a sleek look */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+
+}
+
+/* Columns and Grid */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
   margin-top: 30px;
+  padding: 0 20px;
+}
+
+.grid-container div {
+  background-color: #1e1e1e;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.grid-container div:hover {
+  background-color: #292929;
+  transition: background-color 0.3s ease;
+}
+
+/* Typing Section */
+.typing-game {
+  margin-top: 150px;
 }
 
 #text-to-type {
-  font-size: 24px;
-  margin-bottom: 20px;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #f39c12; /* Accent color for text */
+  
 }
 
-#user-input {
+input[type="text"] {
   width: 80%;
-  height: 40px;
-  font-size: 24px;
   padding: 10px;
-  margin-top: 10px;
-  border: 2px solid #ccc;
-  border-radius: 5px;
+  font-size: 1rem;
+  border: none;
+  border-bottom: 2px solid #444;
+  background: transparent;
+  color: #e0e0e0;
+  outline: none;
 }
 
-#timer {
-  font-size: 20px;
-  margin-top: 20px;
+input[type="text"]:focus {
+  border-bottom: 2px solid #f39c12; /* Accent color on focus */
+  transition: border-color 0.3s ease;
 }
 
-/* Row Layout */
-.row {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 30px;
-}
-
-.column {
-  float: left;
-  width: 50%;
-  padding: 20px;
-  border: 1px solid #ddd;
-  background-color: #f9f9f9;
-  cursor: pointer;
-  text-align: center;
-}
-
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/* Sub-banner */
-.sub-banner {
-  margin: auto;
-  width: 30%;
-  padding: 10px;
-}
-
-/* Grid Container */
-.grid-container {
-  display: inline-grid;
-  grid-template-columns: 200px 200px 200px;
-}
-
-/* Styling for the individual letters */
-#text-to-type .letter {
-  display: inline-block;
-  padding: 0 5px;
-}
