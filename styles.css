@@ -7,7 +7,7 @@
 }
 
 body {
-  background-color: #121212; /* Dark background */
+  background-color: #2a2a2a; /* Dark background */
   color: #e0e0e0; /* Soft off-white for text */
   text-align: center;
   padding-top: 20px;
@@ -21,7 +21,7 @@ body {
 
 /* Banner Styling */
 .banner {
-  background: #1f1f1f; /* Dark but not black */
+  background: #343434; /* Dark but not black */
   color: #e0e0e0; /* Soft white text */
   padding: 15px 20px;
   display: flex;
@@ -73,11 +73,83 @@ body {
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+/*theme buttons*/
+.grid-item-streaks {
+  display: flex;
+  padding: 0.875em 2em;
+  background: linear-gradient(90deg, #3f51b5, transparent) #0073ff;
+  font-family: inherit;
+  color: #fff;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  place-content: center;
+}
+.grid-item-streaks:hover, .grid-item-streaks:focus {
+  background-color: #ffffff;
+  color: #2600ff;
+}
+.grid-item-stateliner {
+  display: flex;
+  padding: 0.875em 2em;
+  background: linear-gradient(90deg, maroon, transparent) #3a6d4d;
+  font-family: inherit;
+  color: #fff;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  place-content: center;
+}
+.grid-item-stateliner:hover, .grid-item-stateliner:focus {
+  background-color: #878787;
+  color: rgb(202, 12, 12);
+}
+.grid-item-tiger {
+  display: flex;
+  padding: 0.875em 2em;
+  background: linear-gradient(90deg, rgb(0, 0, 0), transparent) #3a6d4d;
+  font-family: inherit;
+  color: #ec6600;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  place-content: center;
+}
+.grid-item-tiger:hover, .grid-item-tiger:focus {
+  background-color: #ff7b00;
+  color: rgb(0, 0, 0);
+}
+.grid-item-skenes {
+  display: flex;
+  padding: 0.875em 2em;
+  background: linear-gradient(90deg, rgb(0, 0, 0), transparent) #3a6d4d;
+  font-family: inherit;
+  color: #fff000;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  place-content: center;
+}
+.grid-item-skenes:hover, .grid-item-skenes:focus {
+  background-color: #fff000;
+  color: rgb(0, 0, 0);
+}
+.grid-item-dunn {
+  display: flex;
+  padding: 0.875em 2em;
+  background: linear-gradient(90deg, rgb(143, 0, 186), transparent) #3a6d4d;
+  font-family: inherit;
+  color: #fff000;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  place-content: center;
+}
+.grid-item-dunn:hover, .grid-item-dunn:focus {
+  background-color: #fff000;
+  color: rgb(0, 0, 0);
+}
 
-.grid-container div:hover {
+
+/*.grid-container div:hover {
   background-color: #292929;
   transition: background-color 0.3s ease;
-}
+}*/
 
 /* Typing Section */
 .typing-game {
