@@ -145,7 +145,7 @@ body {
 .grid-item-dunn {
   display: flex;
   padding: 0.875em 2em;
-  background: linear-gradient(90deg, rgb(143, 0, 186), transparent) #3a6d4d;
+  /*background: linear-gradient(90deg, rgb(143, 0, 186), transparent) #3a6d4d;*/
   font-family: inherit;
   color: #fff000;
   text-decoration: none;
@@ -177,8 +177,21 @@ body {
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size: cover; /* Resize the background image to cover the entire container */
 }
+.grid-item-scalito:hover, .grid-item-scalito:focus {
+  color: rgb(255, 100, 100);
+}
 .grid-item-sweden{
   background-image: url("img/sweden.png");
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+  color: black
+}
+.grid-item-sweden:hover, .grid-item-sweden:focus {
+  color: rgb(100, 255, 255);
+}
+.grid-item-freedom{
+  background-image: url("img/freedom.png");
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size: cover; /* Resize the background image to cover the entire container */
