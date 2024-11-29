@@ -1,4 +1,5 @@
 /* Global Styles */
+/*
 * {
   font-family: "Inter", sans-serif; 
   margin: 0;
@@ -7,27 +8,27 @@
 }
 
 body {
-  background-color: #2a2a2a; /* Dark background */
-  color: #e0e0e0; /* Soft off-white for text */
+  background-color: #2a2a2a; 
+  color: #e0e0e0; 
   text-align: center;
   padding-top: 20px;
 }
 .ptype {
-  color: #f39c12; /* Desired color */
-  font-size: 2rem; /* Adjust font size */
-  text-align: center; /* Center align text */
-  margin: 20px 0; /* Add some spacing */
+  color: #f39c12; 
+  font-size: 2rem; 
+  text-align: center; 
+  margin: 20px 0; 
 }
 
-/* Banner Styling */
+
 .banner {
-  background: #343434; /* Dark but not black */
-  color: #e0e0e0; /* Soft white text */
+  background: #343434; 
+  color: #e0e0e0; 
   padding: 15px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid #333; /* Subtle line for separation */
+  border-bottom: 1px solid #333;
 }
 
 .banner a {
@@ -37,7 +38,7 @@ body {
 }
 
 .banner a:hover {
-  color: #f39c12; /* Accent color on hover */
+  color: #f39c12; 
   transition: color 0.3s ease-in-out;
 }
 
@@ -47,18 +48,18 @@ body {
   cursor: pointer;
 }
 
-/* Sub-Banner Section */
+
 .sub-banner {
   margin: 30px auto;
   max-width: 80%;
   padding: 15px 20px;
   background-color: #1e1e1e;
-  border-radius: 8px; /* Rounded edges for a sleek look */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  border-radius: 8px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
 
 }
 
-/* Columns and Grid */
+
 .grid-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -100,7 +101,7 @@ body {
 
 
 
-/*theme buttons*/
+
 .grid-item-streaks {
   display: flex;
   padding: 0.875em 2em;
@@ -188,18 +189,18 @@ body {
 
 .grid-item-scalito{
   background-image: url("img/scalito.png");
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat; /* Do not repeat the image */
-  background-size: cover; /* Resize the background image to cover the entire container */
+  background-position: center; 
+  background-repeat: no-repeat; 
+  background-size: cover; 
 }
 .grid-item-scalito:hover, .grid-item-scalito:focus {
   color: rgb(255, 100, 100);
 }
 .grid-item-sweden{
   background-image: url("img/sweden.png");
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat; /* Do not repeat the image */
-  background-size: cover; /* Resize the background image to cover the entire container */
+  background-position: center; 
+  background-repeat: no-repeat; 
+  background-size: cover; 
   color: black
 }
 .grid-item-sweden:hover, .grid-item-sweden:focus {
@@ -207,26 +208,29 @@ body {
 }
 .grid-item-freedom{
   background-image: url("img/freedom.png");
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat; /* Do not repeat the image */
-  background-size: cover; /* Resize the background image to cover the entire container*/
+  background-position: center; 
+  background-repeat: no-repeat; 
+  background-size: cover; 
 }
 .grid-item-freedom:hover, .grid-item-freedom:focus {
   color: rgb(45, 45, 45);
 }
-/* Typing Section */
+
 .typing-game {
-  margin-top: 150px;
+  margin: 20px auto;
+  max-width: 90%;
 }
+
+
 
 #text-to-type {
-  font-size: 1.5rem;
-  margin-bottom: 15px;
-  color: #f39c12; /* Accent color for text */
-  
+  font-size: 2rem;
+  font-weight: bold;
+  color: #f39c12;
+  margin: 10px 0;
 }
 
-/*font buttons*/
+
 .grid-item-font1  {
   font-family: 'Times New Roman', Times, serif;
   font-size: 20px;
@@ -253,7 +257,7 @@ body {
 }
 
 input[type="text"] {
-  width: 80%;
+  width: 100%;
   padding: 10px;
   font-size: 1rem;
   border: none;
@@ -264,7 +268,88 @@ input[type="text"] {
 }
 
 input[type="text"]:focus {
-  border-bottom: 2px solid #f39c12; /* Accent color on focus */
+  border-bottom: 2px solid #f39c12; 
   transition: border-color 0.3s ease;
+}
+
+*/
+/* General Styles */
+* {
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #2a2a2a;
+  color: #e0e0e0;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.ptype {
+  color: #f39c12;
+  font-size: 2rem;
+  text-align: center;
+  margin: 20px 0;
+}
+
+/* Banner Styles */
+.banner {
+  background: #343434;
+  color: #e0e0e0;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #333;
+}
+
+.banner a {
+  text-decoration: none;
+  color: #e0e0e0;
+  font-size: 1.25rem;
+}
+
+.banner a:hover {
+  color: #f39c12;
+  transition: color 0.3s ease-in-out;
+}
+
+.header img {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+/* Typing Section */
+.typing-game {
+  margin: 20px auto;
+  max-width: 80%;
+}
+
+#text-to-type {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #e0e0e0;
+  margin: 15px 0;
+  text-align: left;
+}
+
+textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 2px solid #444;
+  background: transparent;
+  color: #e0e0e0;
+  outline: none;
+  resize: none;
+  height: 100px;
+}
+
+textarea:focus {
+  border-color: #f39c12;
 }
 

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Eater&display=swap" rel="stylesheet">
@@ -27,15 +27,45 @@
         <a href="multiplayer.html"><div class="column"><h2>Multiplayer</h2></div></a>
     </div>
     
-    <!-- Typing Game Section -->
+    
     <div class="typing-game">
         <h2>Start Typing!</h2>
         <p>Type the following word:</p>
         <div id="text-to-type"></div>
         
-        <input type="text" id="user-input" placeholder="Start typing here..." autocomplete="off" />
-        <div id="timer">Time left: 60 seconds</div>
+        <textarea type="text" id="user-input" placeholder="Start typing here..." autocomplete="off" />
+        <div id="timer" class='timer'></div>
     </div>
     <script src='scripts/indexTypingScript.js'></script>
 </body>
+</html>-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ptype</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="banner">
+        <a href="index.html" class="ptype-logo">
+            <h1 class="ptype">ptype</h1>
+        </a>
+        <div class="header">
+            <a href="settings.html">
+                <img src="img/settings-icon.png" alt="Settings">
+            </a>
+        </div>
+    </div>
+    <div class="typing-game">
+        <h2>Start Typing!</h2>
+        <p>Type the following text:</p>
+        <div id="text-to-type"></div>
+        <textarea id="user-input" placeholder="Start typing here..." autocomplete="off"></textarea>
+    </div>
+    <script src="scripts/indexTypingScript.js"></script>
+</body>
 </html>
+
+
