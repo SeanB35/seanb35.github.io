@@ -137,5 +137,46 @@ userInput.addEventListener("input", () => {
     }
 });
 
+// Select all buttons in the virtual keyboard
+const buttons = document.querySelectorAll('button');
+
+// Create Audio objects for the keyboard click sounds
+const clickSound = new Audio('audios/167326__willy_ineedthatapp_com__click.mp3'); // Sound for all keys except space
+const spaceSound = new Audio('audios/spacebar-click-keyboard-199448.mp3'); // Sound for the space bar
+
+// Add event listeners for keydown and keyup
+document.addEventListener('keydown', (event) => {
+  // Handle space bar explicitly
+  const key = event.key === ' ' ? 'Space' : event.key;
+
+  // Find the button with the matching data-key attribute
+  const button = document.querySelector(`button[data-key="${key}"]`);
+
+  if (button) {
+    // Add the "active" class to change the button's appearance
+    button.classList.add('active');
+
+    // Play the appropriate sound
+    if (event.key === ' ') {
+      spaceSound.currentTime = 0; // Reset to start for rapid clicks
+      spaceSound.play();
+    } else {
+      clickSound.currentTime = 0;
+      clickSound.play();
+    }
+  }
+});
+
+document.addEventListener('keyup', (event) => {
+  // Handle space bar explicitly
+  const key = event.key === ' ' ? 'Space' : event.key;
+
+  // Find the button with the matching data-key attribute
+  const button = document.querySelector(`button[data-key="${key}"]`);
+  if (button) {
+    // Remove the "active" class
+    button.classList.remove('active');
+  }
+});
 
 
