@@ -258,18 +258,9 @@ body {
   color: rgb(45, 45, 45);
 }
 
-/* Typing Game */
-.typing-game {
-  margin: 20px auto;
-  max-width: 90%;
-}
 
-#text-to-type {
-  font-size: 2rem;
-  font-weight: bold;
-  color: #f39c12;
-  margin: 10px 0;
-}
+
+
 
 /* Font Styles */
 .grid-item-font1 {
@@ -445,7 +436,9 @@ body {
 .typing-game { 
   margin: 20px auto; 
   max-width: 90%; 
-  padding: 15px; 
+  padding:15px; 
+  margin-top: 60px;
+  position: relative;
   background-color: #1e1e1e; 
   border-radius: 8px; 
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
@@ -454,8 +447,24 @@ body {
   font-size: 1.75rem; 
   color: #ff9800; 
   font-weight: bold; 
-  margin: 20px 0; 
+  text-align:left;
+  position: relative;
+  top: 0;
+  left: 0;
+  font-size: 23px;
+  pointer-events: none; /* Prevent interaction with display text */
 } 
+#user-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 25px;
+  color: #ff9800; /* Typing text color */
+  background: transparent;
+  outline: none; /* Remove outline for cleaner look */
+  border: none; /* Remove border for clean look */
+  width: 100%;
+}
 textarea { 
   width: 100%; 
   padding: 15px; 

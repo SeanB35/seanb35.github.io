@@ -106,13 +106,16 @@ userInput.addEventListener("input", () => {
 
         if (typedChar === undefined) {
             // Not yet typed
-            updatedHTML += `<span style="color: #e0e0e0;">${correctChar}</span>`;
+            updatedHTML += `<span style="color: #734a00;">${correctChar}</span>`;
+            
         } else if (typedChar === correctChar) {
             // Correctly typed
-            updatedHTML += `<span style="color: #2ed573;">${correctChar}</span>`;
+            updatedHTML += `<span style="color: #FFA500;">${correctChar}</span>`;
+            
         } else {
             // Incorrectly typed
             updatedHTML += `<span style="color: #ff4757;">${correctChar}</span>`;
+            
             errors++;
         }
     }
