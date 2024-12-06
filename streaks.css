@@ -454,7 +454,29 @@ textarea {
  } 
  textarea:focus 
  { border-color: #2e55ff; }
-
+ 
+ #text-to-type { 
+  font-size: 1.75rem; 
+  color: #ff9800; 
+  font-weight: bold; 
+  text-align:left;
+  position: relative;
+  top: 0;
+  left: 0;
+  font-size: 23px;
+  pointer-events: none; /* Prevent interaction with display text */
+} 
+#user-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 25px;
+  color: transparent; /* Typing text color */
+  background: transparent;
+  outline: none; /* Remove outline for cleaner look */
+  border: none; /* Remove border for clean look */
+  width: 100%;
+}
 
 /* From Uiverse.io by thomas-m-njuguna */ 
 .header {
