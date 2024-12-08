@@ -139,7 +139,7 @@ userInput.addEventListener("input", () => {
         sessionStorage.setItem("errors", errors);
 
         // Redirect to results page
-        window.location.href = "/tiger&index/resultsPage.html";
+        window.location.href = "resultsPage.html";
     }
 });
 

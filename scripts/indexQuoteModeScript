@@ -87,7 +87,7 @@ userInput.addEventListener("input", () => {
       sessionStorage.setItem("errors", errors);
 
       // Redirect to results page
-      window.location.href = "/tiger&index/quoteResultsPage.html";
+      window.location.href = "quoteResultsPage.html";
   }
 });
 

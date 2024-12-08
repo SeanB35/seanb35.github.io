@@ -87,7 +87,7 @@ const quotes = [
         sessionStorage.setItem("errors", errors);
   
         // Redirect to results page
-        window.location.href = "quoteModeResults.html";
+        window.location.href = "streaksQuoteModeResults.html";
     }
   });
   
