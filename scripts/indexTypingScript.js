@@ -70,6 +70,7 @@ const wordBank = [
     "worry", "worst", "write", "wrong", "year", "yes", "yesterday", "yet", "you", "young", "zero", "zoo"
   ];
   
+  document.querySelector('textarea').spellcheck = false;
 
 // DOM Elements
 const textToType = document.getElementById("text-to-type");

@@ -1,3 +1,5 @@
+document.querySelector('textarea').spellcheck = false;
+
 const wordBank = [
     "a", "about", "above", "across", "act", "active", "activity", "add", "afraid", "after", "again", "age", "ago", "agree", "air", 
     "all", "alone", "along", "already", "always", "am", "amount", "an", "and", "angry", "another", "answer", "any", "anyone", 

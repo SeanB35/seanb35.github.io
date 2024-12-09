@@ -3,7 +3,7 @@ const wordBank = [
 
   ];
   
-
+document.querySelector('textarea').spellcheck = false;
 // DOM Elements
 const textToType = document.getElementById("text-to-type");
 const userInput = document.getElementById("user-input");
@@ -41,7 +41,7 @@ userInput.addEventListener("input", () => {
             // Not yet typed
             if (i === typedText.length) {
               // Add the cursor at the current position
-              updatedHTML += `<span style="border-left: 3px solid #ff0000; padding-left: 2px; margin-left: -2px; display: inline-block; height: 1em;"></span>`;
+              updatedHTML += `<span style="border-left: 2px solid #ffaaaa; padding-left: 1px; margin-left: -1px; display: inline-block; height: 1em;"></span>`;
               updatedHTML += `<span style="color: #734a00;">${correctChar}</span>`;
           } else {
               updatedHTML += `<span style="color: #734a00;">${correctChar}</span>`;
