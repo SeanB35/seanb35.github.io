@@ -39,14 +39,6 @@
             </a>
           </div>
     </div>
-    <!---div>
-      <a href="quoteMode.html">
-        <button class="quoteButton" spellcheck="false">
-          Quote Mode
-        </button>
-      </a>
-      
-    </div>-->
     <div class="rounded-box">
       <div class="button-container">
         <!-- Quote Mode -->
@@ -88,12 +80,14 @@
       
     </div>
     <script>
-     document.addEventListener('DOMContentLoaded', () => {
-  // Automatically select P Mode and Words on page load
-  document.getElementById('pMode').checked = true;
-  document.getElementById('words').checked = true;
-  handleModeSelection('pMode');
-});
+      //hide translucent overlay
+     function hideOverlay() {
+    const overlay = document.querySelector('.overlay');
+    overlay.style.display = 'none';
+}
+
+
+
 
 let currentMode = ''; // Tracks the current mode
 
@@ -224,7 +218,7 @@ userInput.addEventListener("input", () => {
       sessionStorage.setItem("errors", errors);
 
       // Redirect to results page
-      window.location.href = "quoteResultsPage.html";
+      window.location.href = "resultsPage.html";
   }
 });
 
@@ -476,8 +470,11 @@ function resetMode() {
         <div id="text-to-type"></div>
         
         <textarea id="user-input" autocomplete="false" spellcheck="false"></textarea>
+        <div class="overlay" onclick="hideOverlay()">
+          <span class="overlay-text">Click to Type</span>
+      </div>
     </div>
-    <!--<script src="scripts/indexTypingScript.js"></script>-->
+    
     <section class="screen-keyboard-desktop">
         <div class="keys">
             <!-- Row 1 -->
