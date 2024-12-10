@@ -445,7 +445,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.3);  /* Translucent black */
+  background-color: rgba(147, 128, 128, 0.3);  /* Translucent black */
   cursor: pointer;
   z-index: 1;  /* Make sure the overlay is above the content */
 }
