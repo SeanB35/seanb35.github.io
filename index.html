@@ -95,36 +95,80 @@ function handleModeSelection(selectedId) {
   const quoteMode = document.getElementById('quoteMode');
   const pMode = document.getElementById('pMode');
   const wordsCheckbox = document.getElementById('words');
-  const timeCheckbox = document.getElementById('time');
+  const timeCheckbox = document.getElementById('timed');
 
-  // Enforce mutual exclusivity between modes
+  // Handle switching modes
   if (selectedId === 'quoteMode' && quoteMode.checked) {
     pMode.checked = false; // Deselect P Mode
     currentMode = 'quote';
-    wordsCheckbox.checked = false; // Words not allowed in Quote Mode
-    wordsCheckbox.disabled = true; // Disable Words option
-    wordsCheckbox.parentElement.style.opacity = 0.5; // Dim Words option
+
+    // Disable and uncheck Words and Timed
+    wordsCheckbox.checked = false;
+    wordsCheckbox.disabled = true;
+    wordsCheckbox.parentElement.style.opacity = 0.5;
+
+    timeCheckbox.checked = false;
+    timeCheckbox.disabled = true;
+    timeCheckbox.parentElement.style.opacity = 0.5;
   } else if (selectedId === 'pMode' && pMode.checked) {
     quoteMode.checked = false; // Deselect Quote Mode
     currentMode = 'p';
-    wordsCheckbox.disabled = false; // Enable Words option
-    wordsCheckbox.parentElement.style.opacity = 1; // Restore Words option
+
+    // Enable Words and Timed
+    wordsCheckbox.disabled = false;
+    wordsCheckbox.parentElement.style.opacity = 1;
+
+    timeCheckbox.disabled = false;
+    timeCheckbox.parentElement.style.opacity = 1;
+
+    // Ensure one of Words or Timed is selected
+    if (!wordsCheckbox.checked && !timeCheckbox.checked) {
+      wordsCheckbox.checked = true; // Default to Words
+    }
   }
 
-  // Enforce mutual exclusivity between Words and Time
-  if (wordsCheckbox.checked && timeCheckbox.checked) {
-    timeCheckbox.checked = false; // Automatically uncheck Time
-  }
-
-  // Ensure at least one mode is always selected
+  // Ensure there is always a mode selected
   if (!quoteMode.checked && !pMode.checked) {
-    alert('You must select either P Mode or Quote Mode.');
-    document.getElementById(currentMode === 'quote' ? 'pMode' : 'quoteMode').checked = true;
-    currentMode = currentMode === 'quote' ? 'p' : 'quote';
+    // If both are deselected, restore the previous mode
+    if (currentMode === 'quote') {
+      quoteMode.checked = true;
+    } else {
+      pMode.checked = true;
+    }
   }
 
-  applyModeLogic();
+  // Enforce mutual exclusivity between Words and Timed in P Mode
+  if (pMode.checked) {
+    if (wordsCheckbox.checked && timeCheckbox.checked) {
+      timeCheckbox.checked = false; // Automatically uncheck Timed if Words is checked
+    } else if (!wordsCheckbox.checked && !timeCheckbox.checked) {
+      wordsCheckbox.checked = true; // Ensure at least one is selected
+    }
+
+    // Ensure Words and Timed are mutually exclusive
+    wordsCheckbox.addEventListener('change', () => {
+      if (wordsCheckbox.checked) {
+        timeCheckbox.checked = false;
+      } else if (!timeCheckbox.checked) {
+        timeCheckbox.checked = true; // Ensure at least one is selected
+      }
+    });
+
+    timeCheckbox.addEventListener('change', () => {
+      if (timeCheckbox.checked) {
+        wordsCheckbox.checked = false;
+      } else if (!wordsCheckbox.checked) {
+        wordsCheckbox.checked = true; // Ensure at least one is selected
+      }
+    });
+  }
+  document.getElementById('user-input').value = '';
+  applyModeLogic(); // Apply any additional logic specific to your application
 }
+
+
+
+
 
 function applyModeLogic() {
   if (currentMode === 'quote') {
@@ -264,7 +308,10 @@ document.addEventListener('keyup', (event) => {
   }
 });
 
-  } else if (currentMode === 'p') {
+
+
+  } 
+  else if (currentMode === 'p') {
     const wordBank = [
     "a", "about", "above", "across", "act", "active", "activity", "add", "afraid", "after", "again", "age", "ago", "agree", "air", 
     "all", "alone", "along", "already", "always", "am", "amount", "an", "and", "angry", "another", "answer", "any", "anyone", 
@@ -452,9 +499,6 @@ document.addEventListener('keyup', (event) => {
     button.classList.remove('active');
   }
 });
-
-
-
   }
 }
 
