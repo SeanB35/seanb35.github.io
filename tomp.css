@@ -406,7 +406,6 @@ button.space {
 button:disabled { 
   background: #ddd; cursor: not-allowed; 
 } 
-
   .banner { 
     background: rgb(42, 42, 42);
     color: #444444; 
