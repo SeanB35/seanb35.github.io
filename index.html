@@ -80,11 +80,7 @@
       
     </div>
     <script>
-      //hide translucent overlay
-     function hideOverlay() {
-    const overlay = document.querySelector('.overlay');
-    overlay.style.display = 'none';
-}
+  
 
 
 
@@ -383,80 +379,108 @@ document.addEventListener('keyup', (event) => {
     "win", "wind", "window", "wine", "winter", "wire", "wise", "wish", "with", "without", "woman", "wonder", "word", "work", "world", 
     "worry", "worst", "write", "wrong", "year", "yes", "yesterday", "yet", "you", "young", "zero", "zoo"
   ];
-  
-  document.querySelector('textarea').spellcheck = false;
-
-// DOM Elements
+  // DOM Elements
 const textToType = document.getElementById("text-to-type");
 const userInput = document.getElementById("user-input");
+const wordsCheckbox = document.getElementById("words");
+const timeCheckbox = document.getElementById("timed");
 
 // Generate Random Text
-const generateRandomText = () => {
-    const words = [];
-    for (let i = 0; i < 25; i++) {
-        words.push(wordBank[Math.floor(Math.random() * wordBank.length)]);
-    }
-    return words.join(" ");
+const generateRandomText = (wordCount) => {
+  const words = [];
+  for (let i = 0; i < wordCount; i++) {
+    words.push(wordBank[Math.floor(Math.random() * wordBank.length)]);
+  }
+  return words.join(" ");
 };
 
-// Initialize Game
-const targetText = generateRandomText();
-textToType.innerHTML = targetText;
-
-// Variables for Tracking
+// Initialize Game Variables
+let targetText = "";
 let startTime = null;
 let errors = 0;
+let timer = null;
+
+// Initialize Game Based on Mode
+if (wordsCheckbox.checked) {
+  targetText = generateRandomText(25); // Word Limit Mode: 25 words
+} else if (timeCheckbox.checked) {
+  targetText = generateRandomText(250); // Timed Mode: Large number of words
+}
+textToType.innerHTML = targetText;
 
 // Event Listener for Typing
 userInput.addEventListener("input", () => {
-    if (!startTime) startTime = new Date(); // Start timer on first input
+  if (!startTime) {
+    startTime = new Date();
+    if (timeCheckbox.checked) {
+      // Start timer for Timed mode
+      timer = setTimeout(() => {
+        endTimedMode();
+      }, 60000); // 60 seconds
+    }
+  }
 
-    const typedText = userInput.value;
-    let updatedHTML = "";
-    errors = 0;
+  const typedText = userInput.value;
+  let updatedHTML = "";
+  errors = 0;
 
-    for (let i = 0; i < targetText.length; i++) {
-        const correctChar = targetText[i];
-        const typedChar = typedText[i];
+  for (let i = 0; i < targetText.length; i++) {
+    const correctChar = targetText[i];
+    const typedChar = typedText[i];
 
-        if (typedChar === undefined) {
-          // Not yet typed
-          if (i === typedText.length) {
-            // Add the cursor at the current position
-            updatedHTML += `<span style="border-left: 2px solid #ff9800; padding-left: 1px; margin-left: -1px; display: inline-block; height: 1em;"></span>`;
-            updatedHTML += `<span style="color: #734a00;">${correctChar}</span>`;
+    if (typedChar === undefined) {
+        // Cursor at current typing position
+        if (i === typedText.length) {
+            updatedHTML += `<span style="border-left: 2px solid orange; color: #734a00; padding-left: 1px; margin-left: -1px; display: inline-block;">${correctChar}</span>`;
         } else {
             updatedHTML += `<span style="color: #734a00;">${correctChar}</span>`;
         }
-      } else if (typedChar === correctChar) {
-          // Correctly typed
-          updatedHTML += `<span style="color: #FFA500;">${correctChar}</span>`;
-      } else {
-          // Incorrectly typed
-          updatedHTML += `<span style="color: #ff4757;">${correctChar}</span>`;
-          errors++;
-      }
+    } else if (typedChar === correctChar) {
+        // Correctly typed character
+        updatedHTML += `<span style="color: #FFA500;">${correctChar}</span>`;
+    } else {
+        // Incorrectly typed character
+        updatedHTML += `<span style="color: #ff4757;">${correctChar}</span>`;
     }
-
-    textToType.innerHTML = updatedHTML;
-
+}
 
 
-    // Check if typing is complete
-    if (typedText.length === targetText.length) {
-        const endTime = new Date();
-        const timeTaken = (endTime - startTime) / 1000; // Time in seconds
-        const wpm = Math.round((targetText.split(" ").length / timeTaken) * 60);
+  textToType.innerHTML = updatedHTML;
 
-        // Save results to sessionStorage
-        sessionStorage.setItem("wpm", wpm);
-        sessionStorage.setItem("time", timeTaken.toFixed(2));
-        sessionStorage.setItem("errors", errors);
-
-        // Redirect to results page
-        window.location.href = "resultsPage.html";
-    }
+  // Word Limit Mode: Check if typing is complete
+  if (wordsCheckbox.checked && typedText.length === targetText.length) {
+    endWordLimitMode();
+  }
 });
+
+// End Game Functions
+const endWordLimitMode = () => {
+  const endTime = new Date();
+  const timeTaken = (endTime - startTime) / 1000; // Time in seconds
+  const wpm = Math.round((targetText.split(" ").length / timeTaken) * 60);
+
+  // Save results to sessionStorage
+  sessionStorage.setItem("wpm", wpm);
+  sessionStorage.setItem("time", timeTaken.toFixed(2));
+  sessionStorage.setItem("errors", errors);
+
+  // Redirect to results page
+  window.location.href = "resultsPage.html";
+};
+
+const endTimedMode = () => {
+  const typedText = userInput.value;
+  const wordCount = typedText.split(" ").length;
+  const wpm = Math.round((wordCount / 60) * 60); // WPM over 60 seconds
+
+  // Save results to sessionStorage
+  sessionStorage.setItem("wpm", wpm);
+  sessionStorage.setItem("errors", errors);
+
+  // Redirect to results page
+  window.location.href = "resultsPage.html";
+};
+}
 
 // Select all buttons in the virtual keyboard
 const buttons = document.querySelectorAll('button');
@@ -500,7 +524,7 @@ document.addEventListener('keyup', (event) => {
   }
 });
   }
-}
+
 
 function resetMode() {
   console.log('No mode active');
@@ -514,9 +538,7 @@ function resetMode() {
         <div id="text-to-type"></div>
         
         <textarea id="user-input" autocomplete="false" spellcheck="false"></textarea>
-        <div class="overlay" onclick="hideOverlay()">
-          <span class="overlay-text">Click to Type</span>
-      </div>
+        
     </div>
     
     <section class="screen-keyboard-desktop">

@@ -108,6 +108,25 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+.grid-item-font1, .grid-item-font2, .grid-item-font3, .grid-item-font4, 
+.grid-item-font5, .grid-item-font6, .grid-item-font7, .grid-item-font8, 
+.grid-item-font9, .grid-item-font10 {
+    padding: 15px;
+    background-color: #f4f4f4;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.grid-item-font1:hover, .grid-item-font2:hover, .grid-item-font3:hover, 
+.grid-item-font4:hover, .grid-item-font5:hover, .grid-item-font6:hover, 
+.grid-item-font7:hover, .grid-item-font8:hover, .grid-item-font9:hover, 
+.grid-item-font10:hover {
+    background-color: #e0e0e0;
+}
+
 /* Grid Containers */
 .grid-container,
 .grid-container2 {

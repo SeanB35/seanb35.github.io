@@ -49,6 +49,19 @@
       </div>
 </body>
 <script>
+    document.querySelector(".grid-container2").addEventListener("click", (event) => {
+    const target = event.target;
+
+    // Ensure clicked element is a grid-item
+    if (target.className.startsWith("grid-item-font")) {
+        const newFont = target.getAttribute("data-font");
+
+        // Change font-family of the entire page
+        document.body.style.fontFamily = newFont;
+    }
+});
+</script>
+<script>
     const streaks = document.getElementById('grid-item-streaks');
     streaksLink = 'streaks_theme.html';
 
