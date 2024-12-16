@@ -712,3 +712,73 @@ h3 {
   color: #ff9800;
   text-align: center;
 }
+.score-bar-container {
+  width: 80%; /* Full width of the parent container */
+  height: 30px;
+  background-color: #f3f3f3; /* Light gray background */
+  border-radius: 18px; /* Rounded corners */
+  border: 1px solid #ccc; /* Border color */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow */
+}
+
+/* Styling for the score bar */
+.score-bar {
+  height: 100%;
+  background: rgb(2,0,36);
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(255,0,0,1) 52%, rgba(255,166,0,1) 100%);
+  text-align: center; /* Text in the middle */
+  color: white;
+  font-weight: bold;
+  line-height: 30px; /* Vertically center text */
+  transition: width 0.3s ease; /* Smooth transition for the width change */
+}
+
+/* Styling for the score display */
+.scoreboard{
+  margin-left:22.5%;
+  margin-right:10%;
+}
+.score-display {
+  font-size: 20px;
+  margin: 10px 0;
+}
+#score{
+  font-size: 40px;
+  font-weight: bold;
+}
+.ranks
+{
+  text-align: left;
+  font-size: 30px;
+  margin-left:80px;
+  font-weight: bolder;
+}
+#rank
+{
+  font-weight:1000;
+  text-align: center;
+  font-size:40px;
+  border-radius: 8px;
+  border-width: 3px;
+  border-color: white;
+  margin:30px;
+  font-family: Arial, Helvetica, sans-serif
+}
+#rank-list1{
+  color: red
+}#rank-list2{
+  color: rgb(255, 94, 0)
+}#rank-list3{
+  color: rgb(255,255,0)
+}#rank-list4{
+  color: rgb(26, 255, 0)
+}#rank-list5{
+  color: rgb(0, 157, 255)
+}
+#rank-list6{
+  color: rgb(255, 0, 242);
+}
+#rank-list7{
+  margin-bottom: 70px;
+}

@@ -516,9 +516,9 @@ textarea {
   transition: opacity 0.3s;
 }
 .trRestart {
-  font-size: 1.5rem;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 20px;
   color: #ffffff;
-  text-transform: uppercase;
   padding: 10px 20px;
   border-radius: 10px;
   border: 2px solid #424242;
@@ -595,4 +595,13 @@ textarea {
     text-shadow: -0.025em 0 0 #ec2225, -0.025em -0.025em 0 #313f97,
       -0.025em -0.05em 0 #50c878;
   }
+}
+.results-page{
+  font-weight: 600;
+  color: white;
+  font-size: 25px;
+  word-spacing: 5px;
+  margin: 50px;
+  text-align: left;
+  line-height: 50px;
 }

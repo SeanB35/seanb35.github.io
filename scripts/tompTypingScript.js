@@ -1,7 +1,7 @@
 const wordBank = [
-    "x", "y", "z", "a"
-  ];
-  
+  "scalito"
+];
+
 document.querySelector('textarea').spellcheck = false;
 
 // DOM Elements
@@ -10,11 +10,11 @@ const userInput = document.getElementById("user-input");
 
 // Generate Random Text
 const generateRandomText = () => {
-    const words = [];
-    for (let i = 0; i < 41; i++) {
-        words.push(wordBank[Math.floor(Math.random() * wordBank.length)]);
-    }
-    return words.join(" ");
+  const words = [];
+  for (let i = 0; i < 10; i++) {
+      words.push(wordBank[Math.floor(Math.random() * wordBank.length)]);
+  }
+  return words.join(" ");
 };
 
 // Initialize Game
@@ -74,7 +74,11 @@ userInput.addEventListener("input", () => {
         sessionStorage.setItem("errors", errors);
 
         // Redirect to results page
-        window.location.href = "tompResultsPage.html";
+        if(errors === 0)
+        window.location.href = "doyourememberme.html";
+        else{
+          window.location.href = "dddd.html";
+        }
     }
 });
 
